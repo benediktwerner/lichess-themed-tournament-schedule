@@ -1,54 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lichess Opening Tournament Schedule</title>
-</head>
-<body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
+        color: #c9d1d9;
+        background-color: #0d1117;
+        padding: 2em;
+      }
+      .highlight {
+        background-color: #401818;
+      }
+      td,
+      th {
+        padding: 2px 10px;
+      }
+      .table-day-schedule tr td:nth-child(1),
+      .table-day-schedule tr td:nth-child(2) {
+        text-align: center;
+      }
+      .table-day-schedule tr td:nth-child(3) {
+        text-align: right;
+        padding: 0;
+      }
+      .table-day-schedule tr th:nth-child(4) {
+        text-align: left;
+      }
+      .table-day-schedule tr:nth-child(2),
+      .table-day-schedule tr:nth-child(3),
+      .table-day-schedule tr:nth-child(4),
+      .table-day-schedule tr:nth-child(5),
+      .table-day-schedule tr:nth-child(10),
+      .table-day-schedule tr:nth-child(11),
+      .table-day-schedule tr:nth-child(12),
+      .table-day-schedule tr:nth-child(13) {
+        background-color: #231d1d;
+      }
+      #table-openings td:first-child {
+        text-align: center;
+      }
+      #table-openings th:last-child {
+        text-align: left;
+      }
+      a {
+        color: #58a6ff;
+      }
+    </style>
+  </head>
+  <body>
     <h1>Lichess Opening Tournament Schedule</h1>
 
-    <div id="today"></div>
+    <h2>Today</h2>
+    <table class="table-day-schedule" id="table-today" cellspacing="0">
+      <tr>
+        <th>UTC</th>
+        <th class="tz"></th>
+        <th colspan="2">Format</th>
+        <th>Opening</th>
+      </tr>
+    </table>
 
-    <table id="openings-table"><th><td>Number</td><td>Opening</td></th></table>
+    <h2>Tomorrow</h2>
+    <table class="table-day-schedule" id="table-tomorrow" cellspacing="0">
+      <tr>
+        <th>UTC</th>
+        <th class="tz"></th>
+        <th colspan="2">Format</th>
+        <th>Opening</th>
+      </tr>
+    </table>
+
+    <h2>All openings</h2>
+    <p style="max-width: 800px">
+      The three selected openings move forward by one each day, so each opening has a tounrnament
+      three days in a row. The first opening starts at 19:00, the second at 11:00, and the third at
+      03:00 UTC, each going through Bullet, SuperBlitz, Blitz, and Rapid in subsequent hours.
+    </p>
+    <table id="table-openings" cellspacing="0">
+      <tr>
+        <th>No</th>
+        <th>Opening</th>
+        <th>Next occurrence</th>
+      </tr>
+    </table>
 
     <script>
-        function dayOfYear() {
-            const now = new Date();
-            const start = new Date(now.getFullYear(), 0, 0);
-            return Math.floor((now - start) / (1000 * 60 * 60 * 24));
-        }
+      function dayOfYear() {
+        const now = new Date();
+        const start = new Date(Date.UTC(now.getFullYear(), 0, 0));
+        return Math.floor((now - start) / (1000 * 60 * 60 * 24));
+      }
 
-        const r = await fetch("/lichess-themed-tournament-schedule/openings.txt");
+      function getYearDays() {
+        const year = new Date().getFullYear();
+        return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0) ? 366 : 365;
+      }
+
+      function pad2(num) {
+        return num.toString().padStart(2, '0');
+      }
+
+      function h(tag, content) {
+        const el = document.createElement(tag);
+        if (content instanceof Array) content.forEach((e) => el.append(e));
+        else el.innerText = content;
+        return el;
+      }
+
+      async function main() {
+        const r = await fetch('openings.txt');
         /** @type {string} */
-        const text = await data.text();
-        const openings = text.split(/\r?\n/);
-        const table = document.getElementById("openings-table");
+        const text = await r.text();
+        /** @type {HTMLElement[]} */
+        const openings = text
+          .split(/\r?\n/)
+          .filter(Boolean)
+          .map((o) => {
+            const [name, wikiPath] = o.split('|');
+            const a = h('a', name);
+            a.href = 'https://en.wikipedia.org/wiki/' + wikiPath;
+            return a;
+          });
+        const openingsTable = document.getElementById('table-openings');
+        const todayTable = document.getElementById('table-today');
+        const tomorrowTable = document.getElementById('table-tomorrow');
         const today = dayOfYear();
+        const yearTotalDays = getYearDays();
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const timeZoneOffset = -new Date().getTimezoneOffset();
+
+        Array.from(document.getElementsByClassName('tz')).forEach(
+          (el) =>
+            (el.innerHTML = `${timeZone}<br>UTC${timeZoneOffset > 0 ? '+' : ''}${pad2(
+              Math.floor(timeZoneOffset / 60)
+            )}:${pad2(timeZoneOffset % 60)}`)
+        );
 
         openings.forEach((o, i) => {
-            const tr = document.createElement("tr");
-            const tdNum = document.createElement("td");
-            const tdOp = document.createElement("td");
-            tdNum.innerHTML = i;
-            tdOp.innerHTML = o;
-            if ([0, 1, 2].some(off => (today + off) % openings.length === i))
-                tr.className.append("highlight");
-            tr.append(tdNum);
-            tr.append(tdOp);
-            table.append(tr);
+          const daysToNext = ((4 * openings.length + i - 3 - today) % openings.length) + 1;
+          let nextDate = new Date();
+          if (today + daysToNext < yearTotalDays) {
+            nextDate.setDate(nextDate.getDate() + daysToNext);
+          } else {
+            nextDate = new Date(new Date().getFullYear() + 1, 0, 0) + 1000 * 60 * 60 * 24 * (i + 1);
+          }
+          const nextOcc = `${pad2(nextDate.getDate())}.${pad2(
+            nextDate.getMonth() + 1
+          )}.${nextDate.getFullYear()}`;
+          const tr = h('tr', [h('td', i), h('td', [o.cloneNode(true)]), h('td', nextOcc)]);
+          if ([0, 1, 2].some((off) => (today + off) % openings.length === i))
+            tr.classList.add('highlight');
+          openingsTable.append(tr);
         });
 
-        [2, 1, 0].forEach(off => {
-            const o = openings[(today + off) % openings.length];
-            const parent = document.getElementById("today");
-            const el = document.createElement("div");
-            const hour = [19, 11, 3][off];
-            const timeHere = new Date(Date.UTC(0,0,0,hour));
-            el.innerHTML = `${hour}:00 UTC = ${timeHere.getHours()}:00 - ${o}`;
-            parent.append(el);
+        [todayTable, tomorrowTable].forEach((table, dayOff) => {
+          [2, 1, 0].forEach((off) => {
+            const opening = openings[(today + dayOff + off) % openings.length];
+            const utcHourBase = [19, 11, 3][off];
+            [0, 1, 2, 3].forEach((off2) => {
+              const utcHour = utcHourBase + off2;
+              const localTime = (utcHour * 60 + timeZoneOffset) % (24 * 60);
+              const formatTime = ['1+0', ' 3+0', ' 5+0', '10+0'][off2];
+              const formatName = ['Bullet', 'SuperBlitz', ' Blitz', 'Rapid'][off2];
+
+              table.append(
+                h('tr', [
+                  h('td', pad2(utcHour) + ':00'),
+                  h('td', pad2(Math.floor(localTime / 60)) + ':' + pad2(localTime % 60)),
+                  h('td', formatTime),
+                  h('td', formatName),
+                  h('td', [opening.cloneNode(true)]),
+                ])
+              );
+            });
+          });
         });
+      }
+
+      main();
     </script>
-</body>
+  </body>
 </html>
