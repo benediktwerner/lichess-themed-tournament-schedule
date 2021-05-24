@@ -8,5 +8,47 @@
 </head>
 <body>
     <h1>Lichess Opening Tournament Schedule</h1>
+
+    <div id="today"></div>
+
+    <table id="openings-table"><th><td>Number</td><td>Opening</td></th></table>
+
+    <script>
+        function dayOfYear() {
+            const now = new Date();
+            const start = new Date(now.getFullYear(), 0, 0);
+            return Math.floor((now - start) / (1000 * 60 * 60 * 24));
+        }
+
+        const r = await fetch("/lichess-themed-tournament-schedule/openings.txt");
+        /** @type {string} */
+        const text = await data.text();
+        const openings = text.split(/\r?\n/);
+        const table = document.getElementById("openings-table");
+        const today = dayOfYear();
+
+        openings.forEach((o, i) => {
+            const tr = document.createElement("tr");
+            const tdNum = document.createElement("td");
+            const tdOp = document.createElement("td");
+            tdNum.innerHTML = i;
+            tdOp.innerHTML = o;
+            if ([0, 1, 2].some(off => (today + off) % openings.length === i))
+                tr.className.append("highlight");
+            tr.append(tdNum);
+            tr.append(tdOp);
+            table.append(tr);
+        });
+
+        [2, 1, 0].forEach(off => {
+            const o = openings[(today + off) % openings.length];
+            const parent = document.getElementById("today");
+            const el = document.createElement("div");
+            const hour = [19, 11, 3][off];
+            const timeHere = new Date(Date.UTC(0,0,0,hour));
+            el.innerHTML = `${hour}:00 UTC = ${timeHere.getHours()}:00 - ${o}`;
+            parent.append(el);
+        });
+    </script>
 </body>
 </html>
