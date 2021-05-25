@@ -145,6 +145,7 @@
         const yearTotalDays = getYearDays();
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const timeZoneOffset = -new Date().getTimezoneOffset();
+        const WEIRD_OFFSET = 1;
 
         Array.from(document.getElementsByClassName('tz')).forEach(
           (el) =>
@@ -154,25 +155,26 @@
         );
 
         openings.forEach((o, i) => {
-          const daysToNext = ((4 * openings.length + i - 3 - today) % openings.length) + 1;
+          const daysToNext = ((4 * openings.length + i - 3 - today + WEIRD_OFFSET) % openings.length) + 1;
           let nextDate = new Date();
-          if (today + daysToNext < yearTotalDays) {
+          if (today + daysToNext <= yearTotalDays) {
             nextDate.setDate(nextDate.getDate() + daysToNext);
           } else {
-            nextDate = new Date(new Date().getFullYear() + 1, 0, 0) + 1000 * 60 * 60 * 24 * (i + 1);
+            if (i === 0) i += openings.length;
+            nextDate = new Date(new Date().getFullYear() + 1, 0, 0) + 1000 * 60 * 60 * 24 * i;
           }
           const nextOcc = `${pad2(nextDate.getDate())}.${pad2(
             nextDate.getMonth() + 1
           )}.${nextDate.getFullYear()}`;
           const tr = h('tr', [h('td', i), h('td', [o.cloneNode(true)]), h('td', nextOcc)]);
-          if ([0, 1, 2].some((off) => (today + off) % openings.length === i))
+          if ([0, 1, 2].some((off) => (today + off - WEIRD_OFFSET) % openings.length === i))
             tr.classList.add('highlight');
           openingsTable.append(tr);
         });
 
         [todayTable, tomorrowTable].forEach((table, dayOff) => {
           [2, 1, 0].forEach((off) => {
-            const opening = openings[(today + dayOff + off) % openings.length];
+            const opening = openings[(today + dayOff + off - WEIRD_OFFSET) % openings.length];
             const utcHourBase = [19, 11, 3][off];
             [0, 1, 2, 3].forEach((off2) => {
               const utcHour = utcHourBase + off2;
