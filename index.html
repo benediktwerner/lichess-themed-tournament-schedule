@@ -157,12 +157,7 @@
         openings.forEach((o, i) => {
           const daysToNext = ((4 * openings.length + i - 3 - today + WEIRD_OFFSET) % openings.length) + 1;
           let nextDate = new Date();
-          if (today + daysToNext <= yearTotalDays) {
-            nextDate.setDate(nextDate.getDate() + daysToNext);
-          } else {
-            if (i === 0) i += openings.length;
-            nextDate = new Date(new Date().getFullYear() + 1, 0, 0) + 1000 * 60 * 60 * 24 * i;
-          }
+          nextDate.setDate(nextDate.getDate() + daysToNext);
           const nextOcc = `${pad2(nextDate.getDate())}.${pad2(
             nextDate.getMonth() + 1
           )}.${nextDate.getFullYear()}`;
