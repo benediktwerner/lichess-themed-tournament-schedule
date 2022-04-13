@@ -16,6 +16,9 @@
         background-color: #0d1117;
         padding: 2em;
       }
+      h1 {
+        margin-top: 0;
+      }
       .highlight {
         background-color: #401818;
       }
@@ -89,9 +92,10 @@
 
     <h2>All openings</h2>
     <p style="max-width: 800px">
-      The three selected openings move forward by one each day, so each opening has a tournament
-      three days in a row. The first opening starts at 19:00, the second at 11:00, and the third at
-      03:00 UTC, each going through Bullet, SuperBlitz, Blitz, and Rapid in subsequent hours.
+      The three selected openings move forward by one each day, so each opening has tournaments
+      three days in a row. On the first day, the opening starts at 03:00 UTC, the next day at 11:00
+      UTC, and the last day on 19:00 UTC, each time going through Bullet, SuperBlitz, Blitz, and
+      Rapid in subsequent hours.
     </p>
     <table id="table-openings" cellspacing="0">
       <tr>
@@ -154,18 +158,24 @@
             )}:${pad2(timeZoneOffset % 60)}`)
         );
 
-        openings.forEach((o, i) => {
-          const daysToNext = ((4 * openings.length + i - 3 - today + WEIRD_OFFSET) % openings.length) + 1;
+        const todayIndex = (today - WEIRD_OFFSET) % openings.length;
+        console.log(todayIndex);
+        for (let i = 0; i < openings.length; i++) {
+          const day = (i + todayIndex) % openings.length;
+          const opening = openings[day];
+          const daysToNext =
+            ((4 * openings.length + day - 3 - today + WEIRD_OFFSET) % openings.length) + 1;
           let nextDate = new Date();
           nextDate.setDate(nextDate.getDate() + daysToNext);
-          const nextOcc = `${pad2(nextDate.getDate())}.${pad2(
+          let nextOcc = `${pad2(nextDate.getDate())}.${pad2(
             nextDate.getMonth() + 1
           )}.${nextDate.getFullYear()}`;
-          const tr = h('tr', [h('td', i), h('td', [o.cloneNode(true)]), h('td', nextOcc)]);
-          if ([0, 1, 2].some((off) => (today + off - WEIRD_OFFSET) % openings.length === i))
-            tr.classList.add('highlight');
+          if (i < 3)
+            nextOcc += ' (and ' + ['today', 'today+tomorrow', 'today+next 2 days'][i] + ')';
+          const tr = h('tr', [h('td', day), h('td', [opening.cloneNode(true)]), h('td', nextOcc)]);
+          if (i < 3) tr.classList.add('highlight');
           openingsTable.append(tr);
-        });
+        }
 
         [todayTable, tomorrowTable].forEach((table, dayOff) => {
           [2, 1, 0].forEach((off) => {
