@@ -159,7 +159,6 @@
         );
 
         const todayIndex = (today - WEIRD_OFFSET) % openings.length;
-        console.log(todayIndex);
         for (let i = 0; i < openings.length; i++) {
           const day = (i + todayIndex) % openings.length;
           const opening = openings[day];
