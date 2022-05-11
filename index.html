@@ -70,7 +70,7 @@
       >
     </p>
 
-    <h2>Today</h2>
+    <h2>Today <span id="today-date"></span></h2>
     <table class="table-day-schedule" id="table-today" cellspacing="0">
       <tr>
         <th>UTC</th>
@@ -80,7 +80,7 @@
       </tr>
     </table>
 
-    <h2>Tomorrow</h2>
+    <h2>Tomorrow <span id="tomorrow-date"></span></h2>
     <table class="table-day-schedule" id="table-tomorrow" cellspacing="0">
       <tr>
         <th>UTC</th>
@@ -108,13 +108,14 @@
     <script>
       function dayOfYear() {
         const now = new Date();
-        const start = new Date(Date.UTC(now.getFullYear(), 0, 0));
+        const start = Date.UTC(now.getUTCFullYear(), 0, 0);
         return Math.floor((now - start) / (1000 * 60 * 60 * 24));
       }
 
-      function getYearDays() {
-        const year = new Date().getFullYear();
-        return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0) ? 366 : 365;
+      function formatDate(date) {
+        return `${pad2(date.getUTCDate())}.${pad2(
+          date.getUTCMonth() + 1
+          )}.${date.getUTCFullYear()}`;
       }
 
       function pad2(num) {
@@ -146,7 +147,6 @@
         const todayTable = document.getElementById('table-today');
         const tomorrowTable = document.getElementById('table-tomorrow');
         const today = dayOfYear();
-        const yearTotalDays = getYearDays();
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const timeZoneOffset = -new Date().getTimezoneOffset();
         const WEIRD_OFFSET = 1;
@@ -165,10 +165,8 @@
           const daysToNext =
             ((4 * openings.length + day - 3 - today + WEIRD_OFFSET) % openings.length) + 1;
           let nextDate = new Date();
-          nextDate.setDate(nextDate.getDate() + daysToNext);
-          let nextOcc = `${pad2(nextDate.getDate())}.${pad2(
-            nextDate.getMonth() + 1
-          )}.${nextDate.getFullYear()}`;
+          nextDate.setUTCDate(nextDate.getUTCDate() + daysToNext);
+          let nextOcc = formatDate(nextDate);
           if (i < 3)
             nextOcc += ' (and ' + ['today', 'today+tomorrow', 'today+next 2 days'][i] + ')';
           const tr = h('tr', [h('td', day), h('td', [opening.cloneNode(true)]), h('td', nextOcc)]);
@@ -198,6 +196,11 @@
             });
           });
         });
+
+        const now = new Date();
+        document.getElementById("today-date").innerText = formatDate(now);
+        now.setUTCDate(now.getUTCDate() + 1);
+        document.getElementById("tomorrow-date").innerText = formatDate(now);
       }
 
       main();
