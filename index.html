@@ -10,8 +10,8 @@
         box-sizing: border-box;
       }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-          Apple Color Emoji, Segoe UI Emoji;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+          Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
         color: #c9d1d9;
         background-color: #0d1117;
         padding: 2em;
@@ -62,12 +62,13 @@
     <h1>Lichess Opening Tournament Schedule</h1>
 
     <p>
-      <small
-        ><i
-          >Disclaimer: This is not official information. There is no guarantee that any of these
-          tournaments will take place. The tournament schedule may change at any point.</i
-        ></small
-      >
+      <small>
+        <i>
+          Disclaimer: This is not official information. There is no guarantee
+          that any of these tournaments will take place. The tournament schedule
+          may change at any point.
+        </i>
+      </small>
     </p>
 
     <h2>Today <span id="today-date"></span></h2>
@@ -92,10 +93,11 @@
 
     <h2>All openings</h2>
     <p style="max-width: 800px">
-      The three selected openings move forward by one each day, so each opening has tournaments
-      three days in a row. On the first day, the opening starts at 03:00 UTC, the next day at 11:00
-      UTC, and the last day on 19:00 UTC, each time going through Bullet, SuperBlitz, Blitz, and
-      Rapid in subsequent hours.
+      The three selected openings move forward by one each day, so each opening
+      has tournaments three days in a row. On the first day, the opening starts
+      at 03:00 UTC, the next day at 11:00 UTC, and the last day on 19:00 UTC,
+      each time going through Bullet, SuperBlitz, Blitz, and Rapid in subsequent
+      hours.
     </p>
     <table id="table-openings" cellspacing="0">
       <tr>
@@ -115,7 +117,7 @@
       function formatDate(date) {
         return `${pad2(date.getUTCDate())}.${pad2(
           date.getUTCMonth() + 1
-          )}.${date.getUTCFullYear()}`;
+        )}.${date.getUTCFullYear()}`;
       }
 
       function pad2(num) {
@@ -153,9 +155,11 @@
 
         Array.from(document.getElementsByClassName('tz')).forEach(
           (el) =>
-            (el.innerHTML = `${timeZone}<br>UTC${timeZoneOffset > 0 ? '+' : ''}${pad2(
-              Math.floor(timeZoneOffset / 60)
-            )}:${pad2(timeZoneOffset % 60)}`)
+            (el.innerHTML = `${timeZone}<br>UTC${
+              timeZoneOffset > 0 ? '+' : ''
+            }${pad2(Math.floor(timeZoneOffset / 60))}:${pad2(
+              timeZoneOffset % 60
+            )}`)
         );
 
         const todayIndex = (today - WEIRD_OFFSET) % openings.length;
@@ -163,31 +167,49 @@
           const day = (i + todayIndex) % openings.length;
           const opening = openings[day];
           const daysToNext =
-            ((4 * openings.length + day - 3 - today + WEIRD_OFFSET) % openings.length) + 1;
+            ((4 * openings.length + day - 3 - today + WEIRD_OFFSET) %
+              openings.length) +
+            1;
           let nextDate = new Date();
           nextDate.setUTCDate(nextDate.getUTCDate() + daysToNext);
           let nextOcc = formatDate(nextDate);
-          if (i < 3)
-            nextOcc += ' (and ' + ['today', 'today+tomorrow', 'today+next 2 days'][i] + ')';
-          const tr = h('tr', [h('td', day), h('td', [opening.cloneNode(true)]), h('td', nextOcc)]);
+          if (i < 3) {
+            nextOcc +=
+              ' (and ' +
+              ['today', 'today+tomorrow', 'today+next 2 days'][i] +
+              ')';
+          }
+          const tr = h('tr', [
+            h('td', day),
+            h('td', [opening.cloneNode(true)]),
+            h('td', nextOcc),
+          ]);
           if (i < 3) tr.classList.add('highlight');
           openingsTable.append(tr);
         }
 
         [todayTable, tomorrowTable].forEach((table, dayOff) => {
           [2, 1, 0].forEach((off) => {
-            const opening = openings[(today + dayOff + off - WEIRD_OFFSET) % openings.length];
+            const opening =
+              openings[(today + dayOff + off - WEIRD_OFFSET) % openings.length];
             const utcHourBase = [19, 11, 3][off];
             [0, 1, 2, 3].forEach((off2) => {
               const utcHour = utcHourBase + off2;
               const localTime = (utcHour * 60 + timeZoneOffset) % (24 * 60);
               const formatTime = ['1+0', ' 3+0', ' 5+0', '10+0'][off2];
-              const formatName = ['Bullet', 'SuperBlitz', ' Blitz', 'Rapid'][off2];
+              const formatName = ['Bullet', 'SuperBlitz', ' Blitz', 'Rapid'][
+                off2
+              ];
 
               table.append(
                 h('tr', [
                   h('td', pad2(utcHour) + ':00'),
-                  h('td', pad2(Math.floor(localTime / 60)) + ':' + pad2(localTime % 60)),
+                  h(
+                    'td',
+                    pad2(Math.floor(localTime / 60)) +
+                      ':' +
+                      pad2(localTime % 60)
+                  ),
                   h('td', formatTime),
                   h('td', formatName),
                   h('td', [opening.cloneNode(true)]),
@@ -198,9 +220,9 @@
         });
 
         const now = new Date();
-        document.getElementById("today-date").innerText = formatDate(now);
+        document.getElementById('today-date').innerText = formatDate(now);
         now.setUTCDate(now.getUTCDate() + 1);
-        document.getElementById("tomorrow-date").innerText = formatDate(now);
+        document.getElementById('tomorrow-date').innerText = formatDate(now);
       }
 
       main();
