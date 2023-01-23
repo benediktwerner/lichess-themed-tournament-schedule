@@ -143,10 +143,13 @@
         const openings = text
           .split(/\r?\n/)
           .filter(Boolean)
-          .map((o) => {
-            const [name, wikiPath] = o.split('|');
+          .map((name) => {
             const a = h('a', name);
-            a.href = 'https://en.wikipedia.org/wiki/' + wikiPath;
+            const moves = name
+              .split('1. ')[1]
+              .replace(/\d+\. /g, '')
+              .replace(/ /g, '_');
+            a.href = 'https://lichess.org/opening/-/' + moves;
             return a;
           });
         const openingsTable = document.getElementById('table-openings');
