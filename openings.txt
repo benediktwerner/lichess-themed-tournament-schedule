@@ -1,130 +1,130 @@
 C45 Scotch Game: Steinitz Variation: 1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Qh4
-A53 Old Indian Defence: 1. d4 Nf6 2. c4 d6
-C63 Ruy Lopez: Schliemann Defence: 1. e4 e5 2. Nf3 Nc6 3. Bb5 f5
-C51 Evans Gambit: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4
-D00 Blackmar Gambit: 1. d4 d5 2. e4
+A53 Old Indian Defense: 1. d4 Nf6 2. c4 d6
+C63 Ruy Lopez: Schliemann Defense: 1. e4 e5 2. Nf3 Nc6 3. Bb5 f5
+C51 Italian Game: Evans Gambit: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. b4
+D00 Blackmar-Diemer Gambit: 1. d4 d5 2. e4
 C30 King's Gambit Declined: Classical Variation: 1. e4 e5 2. f4 Bc5
-E41 Nimzo-Indian Defence: Hübner Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 c5 5. Bd3 Nc6 6. Nf3 Bxc3+ 7. bxc3 d6
-B70 Sicilian Defence: Dragon Variation: 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6
-B04 Alekhine's Defence: Modern Variation: 1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. Nf3
-D82 Grünfeld Defence: Brinckmann Attack: 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Bf4
-B10 Caro-Kann Defence: 1. e4 c6
-D90 Grünfeld Defence: Taimanov Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Nf3 Bg7 5. Bg5
-A02 Bird's Opening: Dutch Variation: 1. f4 d5
-D40 Queen's Gambit Declined: Semi-Tarrasch Defence: 1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3 c5
+E41 Nimzo-Indian Defense: Hübner Variation, Main Line: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 c5 5. Bd3 Nc6 6. Nf3 Bxc3+ 7. bxc3 d6
+B70 Sicilian Defense: Dragon Variation: 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 g6
+B04 Alekhine Defense: Modern Variation: 1. e4 Nf6 2. e5 Nd5 3. d4 d6 4. Nf3
+D82 Grünfeld Defense: Brinckmann Attack: 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Bf4
+B10 Caro-Kann Defense: 1. e4 c6
+D91 Grünfeld Defense: Three Knights Variation, Petrosian System: 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Nf3 Bg7 5. Bg5
+A03 Bird Opening: Dutch Variation: 1. f4 d5
+D40 Queen's Gambit Declined: Semi-Tarrasch Defense: 1. d4 Nf6 2. c4 e6 3. Nf3 d5 4. Nc3 c5
 C45 Scotch Game: Mieses Variation: 1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Nf6 5. Nxc6 bxc6 6. e5
-D80 Grünfeld Defence: 1. d4 Nf6 2. c4 g6 3. Nc3 d5
+D80 Grünfeld Defense: 1. d4 Nf6 2. c4 g6 3. Nc3 d5
 A30 English Opening: Symmetrical Variation: 1. c4 c5
-E30 Nimzo-Indian Defence: Leningrad Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Bg5
-B90 Sicilian Defence: Najdorf Variation: 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6
+E30 Nimzo-Indian Defense: Leningrad Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Bg5
+B90 Sicilian Defense: Najdorf Variation: 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 a6
 C27 Vienna Game: Frankenstein-Dracula Variation: 1. e4 e5 2. Nc3 Nf6 3. Bc4 Nxe4
-D10 Queen's Gambit Declined: Slav Defence: 1. d4 d5 2. c4 c6
-A96 Dutch Defence: Classical Variation: 1. d4 f5 2. c4 Nf6 3. g3 e6 4. Bg2 Be7 5. Nf3 O-O 6. O-O d6
-B23 Sicilian Defence: Grand Prix Attack: 1. e4 c5 2. f4
-A92 Dutch Defence: Stonewall Variation: 1. d4 f5 2. c4 Nf6 3. g3 e6 4. Bg2 Be7 5. Nf3 O-O 6. O-O d5
-B36 Sicilian Defence: Accelerated Dragon: 1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6
-B01 Scandinavian Defence: Icelandic-Palme Gambit: 1. e4 d5 2. exd5 Nf6 3. c4 e6
-A43 Benoni Defence: Czech Benoni: 1. d4 Nf6 2. c4 c5 3. d5 e5
-C01 French Defence: Exchange Variation: 1. e4 e6 2. d4 d5 3. exd5
+D10 Slav Defense: 1. d4 d5 2. c4 c6
+A96 Dutch Defense: Classical Variation: 1. d4 e6 2. c4 f5 3. g3 Nf6 4. Bg2 Be7 5. Nf3 O-O 6. O-O d6
+B21 Sicilian Defense: McDonnell Attack: 1. e4 c5 2. f4
+A92 Dutch Defense: Stonewall Variation: 1. d4 e6 2. c4 f5 3. g3 Nf6 4. Bg2 Be7 5. Nf3 d5 6. O-O O-O
+B32 Sicilian Defense: Accelerated Dragon: 1. e4 c5 2. Nf3 Nc6 3. d4 cxd4 4. Nxd4 g6
+B01 Scandinavian Defense: Icelandic-Palme Gambit: 1. e4 d5 2. exd5 Nf6 3. c4 e6
+A56 Benoni Defense: Czech Benoni Defense: 1. d4 Nf6 2. c4 c5 3. d5 e5
+C01 French Defense: Exchange Variation: 1. e4 e6 2. d4 d5 3. exd5
 A07 King's Indian Attack: 1. Nf3 d5 2. g3
-E20 Nimzo-Indian Defence: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4
-D01 Richter-Veresov Attack: 1. d4 d5 2. Nc3 Nf6 3. Bg5
-C50 Giuoco Piano: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5
-B06 Modern Defence: 1. e4 g6
-D85 Grünfeld Defence: Exchange Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5
+E20 Nimzo-Indian Defense: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4
+D01 Richter-Veresov Attack: 1. d4 Nf6 2. Nc3 d5 3. Bg5
+C50 Italian Game: Giuoco Piano: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5
+B06 Modern Defense: 1. e4 g6
+D85 Grünfeld Defense: Exchange Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. cxd5 Nxd5
 C50 Italian Game: 1. e4 e5 2. Nf3 Nc6 3. Bc4
 C60 Ruy Lopez: 1. e4 e5 2. Nf3 Nc6 3. Bb5
-E77 King's Indian Defence: 4.e4: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6
-C15 French Defence: Winawer Variation: 1. e4 e6 2. d4 d5 3. Nc3 Bb4
+E70 King's Indian Defense: Normal Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6
+C15 French Defense: Winawer Variation: 1. e4 e6 2. d4 d5 3. Nc3 Bb4
 C23 Bishop's Opening: 1. e4 e5 2. Bc4
 E00 Catalan Opening: 1. d4 Nf6 2. c4 e6 3. g3
-C11 French Defence: Classical Variation: 1. e4 e6 2. d4 d5 3. Nc3 Nf6
-B21 Sicilian Defence: Smith-Morra Gambit: 1. e4 c5 2. d4 cxd4 3. c3
-E32 Nimzo-Indian Defence: Classical Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qc2
+C11 French Defense: Classical Variation: 1. e4 e6 2. d4 d5 3. Nc3 Nf6
+B21 Sicilian Defense: Smith-Morra Gambit: 1. e4 c5 2. d4 cxd4 3. c3
+E32 Nimzo-Indian Defense: Classical Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Qc2
 D06 Queen's Gambit: 1. d4 d5 2. c4
-B22 Sicilian Defence: Alapin Variation: 1. e4 c5 2. c3
+B22 Sicilian Defense: Alapin Variation: 1. e4 c5 2. c3
 C21 Danish Gambit: 1. e4 e5 2. d4 exd4 3. c3
-A80 Dutch Defence: 1. d4 f5
-E61 King's Indian Defence: 1. d4 Nf6 2. c4 g6
-C10 French Defence: Rubinstein Variation: 1. e4 e6 2. d4 d5 3. Nc3 dxe4
-B23 Sicilian Defence: Closed Variation: 1. e4 c5 2. Nc3
-D80 Grünfeld Defence: Russian Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Qb3
-B01 Scandinavian Defence: 1. e4 d5
-B06 Modern Defence: Robatsch Defence: 1. e4 g6 2. d4 Bg7 3. Nc3
-A61 Benoni Defence: Modern Benoni: 1. d4 Nf6 2. c4 c5 3. d5 e6
-E12 Queen's Indian Defence: 1. d4 Nf6 2. c4 e6 3. Nf3 b6
+A80 Dutch Defense: 1. d4 f5
+E60 Indian Defense: West Indian Defense: 1. d4 Nf6 2. c4 g6
+C10 French Defense: Rubinstein Variation: 1. e4 e6 2. d4 d5 3. Nc3 dxe4
+B23 Sicilian Defense: Closed: 1. e4 c5 2. Nc3
+D81 Grünfeld Defense: Russian Variation, Accelerated Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 d5 4. Qb3
+B01 Scandinavian Defense: 1. e4 d5
+B06 Modern Defense: Standard Line: 1. e4 g6 2. d4 Bg7 3. Nc3
+A60 Benoni Defense: Modern Variation: 1. d4 Nf6 2. c4 c5 3. d5 e6
+E12 Queen's Indian Defense: 1. d4 Nf6 2. c4 e6 3. Nf3 b6
 C33 King's Gambit Accepted: 1. e4 e5 2. f4 exf4
-D00 London System: Mason Attack: 1. d4 d5 2. Bf4
-C02 French Defence: Advance Variation: 1. e4 e6 2. d4 d5 3. e5
-B12 Caro-Kann Defence: Advance Variation: 1. e4 c6 2. d4 d5 3. e5
-A87 Dutch Defence: Leningrad Variation: 1. d4 f5 2. c4 Nf6 3. g3 g6 4. Bg2 Bg7 5. Nf3
-C48 Four Knights Game: Spanish Variation: 1. e4 e5 2. Nf3 Nf6 3. Nc3 Nc6 4. Bb5
-D32 Queen's Gambit Declined: Tarrasch Defence: 1. d4 d5 2. c4 e6 3. Nc3 c5
+D00 Queen's Pawn Game: Accelerated London System: 1. d4 d5 2. Bf4
+C02 French Defense: Advance Variation: 1. e4 e6 2. d4 d5 3. e5
+B12 Caro-Kann Defense: Advance Variation: 1. e4 c6 2. d4 d5 3. e5
+A87 Dutch Defense: Leningrad Variation: 1. d4 f5 2. c4 Nf6 3. g3 g6 4. Bg2 Bg7 5. Nf3
+C48 Four Knights Game: Spanish Variation: 1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Bb5
+D32 Tarrasch Defense: 1. d4 d5 2. c4 e6 3. Nc3 c5
 C20 King's Pawn Game: Wayward Queen Attack: 1. e4 e5 2. Qh5
 A09 Réti Opening: 1. Nf3 d5 2. c4
-E11 Bogo-Indian Defence: 1. d4 Nf6 2. c4 e6 3. Nf3 Bb4+
-E76 King's Indian Defence: Four Pawns Attack: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f4
-E62 King's Indian Defence: Fianchetto Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. Nf3 d6 5. g3
-D43 Queen's Gambit Declined: Semi-Slav Defence: 1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Nf3 c6
-A41 Queens's Pawn Game: Modern Defence: 1. d4 g6 2. c4 d6 3. Nc3 Bg7
+E11 Bogo-Indian Defense: 1. d4 Nf6 2. c4 e6 3. Nf3 Bb4+
+E76 King's Indian Defense: Four Pawns Attack: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f4
+E62 King's Indian Defense: Fianchetto Variation, Delayed Fianchetto: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. Nf3 d6 5. g3
+D43 Semi-Slav Defense: 1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6
+A41 Modern Defense: 1. d4 g6 2. c4 Bg7 3. Nc3 d6
 C44 Scotch Game: 1. e4 e5 2. Nf3 Nc6 3. d4
-C43 Petrov's Defence: Steinitz Attack: 1. e4 e5 2. Nf3 Nf6 3. d4
-B07 Lion Variation: Anti-Philidor: 1. e4 d6 2. d4 Nf6 3. Nc3 Nbd7 4. f4 e5
-C42 Petrov's Defence: Three Knights Game: 1. e4 e5 2. Nf3 Nf6 3. Nc3
-C36 King's Gambit Accepted: Modern Defence: 1. e4 e5 2. f4 exf4 3. Nf3 d5
-C11 French Defence: Burn Variation: 1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5 dxe4
-B27 Sicilian Defence: Hyper-Accelerated Dragon: 1. e4 c5 2. Nf3 g6
-E06 Catalan Opening: Closed Variation: 1. d4 Nf6 2. c4 e6 3. g3 d5 4. Nf3 Be7 5. Bg2
+C43 Russian Game: Modern Attack: 1. e4 e5 2. Nf3 Nf6 3. d4
+B07 Lion Defense: Anti-Philidor, Lion's Cave: 1. e4 d6 2. d4 Nf6 3. Nc3 Nbd7 4. f4 e5
+C42 Russian Game: Three Knights Game: 1. e4 e5 2. Nf3 Nf6 3. Nc3
+C36 King's Gambit Accepted: Modern Defense: 1. e4 e5 2. f4 exf4 3. Nf3 d5
+C11 French Defense: Burn Variation: 1. e4 e6 2. d4 d5 3. Nc3 Nf6 4. Bg5
+B27 Sicilian Defense: Hyperaccelerated Dragon: 1. e4 c5 2. Nf3 g6
+E06 Catalan Opening: Closed: 1. d4 Nf6 2. c4 e6 3. g3 d5 4. Bg2 Be7 5. Nf3
 C64 Ruy Lopez: Classical Variation: 1. e4 e5 2. Nf3 Nc6 3. Bb5 Bc5
-E26 Nimzo-Indian Defence: Sämisch Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3 Bxc3+ 5. bxc3
-B17 Caro-Kann Defence: Steinitz Variation: 1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Nd7
+E24 Nimzo-Indian Defense: Sämisch Variation, Accelerated: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. a3 Bxc3+ 5. bxc3
+B17 Caro-Kann Defense: Karpov Variation: 1. e4 c6 2. d4 d5 3. Nd2 dxe4 4. Nxe4 Nd7
 D01 Rapport-Jobava System: 1. d4 d5 2. Nc3 Nf6 3. Bf4
 C30 King's Gambit: 1. e4 e5 2. f4
-B80 Sicilian Defence: Scheveningen Variation: 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 e6
-A02 Bird's Opening: 1. f4
-C41 Philidor Defence: Lion Variation: 1. e4 d6 2. d4 Nf6 3. Nc3 e5 4. Nf3 Nbd7
-E21 Nimzo-Indian Defence: Kasparov Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Nf3
-B07 Pirc Defence: 1. e4 d6 2. d4 Nf6 3. Nc3
-C55 Italian Game: Two Knights Defence: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6
-C50 Italian Game: Hungarian Defence: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Be7
-B13 Caro-Kann Defence: Exchange Variation: 1. e4 c6 2. d4 d5 3. exd5
-B09 Pirc Defence: Austrian Attack: 1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. f4
-B02 Alekhine's Defence: 1. e4 Nf6
-C42 Petrov's Defence: 1. e4 e5 2. Nf3 Nf6
-E43 Nimzo-Indian Defence: Fischer Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 b6
+B80 Sicilian Defense: Scheveningen Variation: 1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 d6
+A02 Bird Opening: 1. f4
+C41 Philidor Defense: Lion Variation: 1. e4 e5 2. Nf3 d6 3. d4 Nf6 4. Nc3 Nbd7
+E21 Nimzo-Indian Defense: Three Knights Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. Nf3
+B00 Pirc Defense: 1. e4 d6 2. d4 Nf6
+C55 Italian Game: Two Knights Defense: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6
+C50 Italian Game: Hungarian Defense: 1. e4 e5 2. Nf3 Nc6 3. Bc4 Be7
+B13 Caro-Kann Defense: Exchange Variation: 1. e4 c6 2. d4 d5 3. exd5
+B09 Pirc Defense: Austrian Attack: 1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. f4
+B02 Alekhine Defense: 1. e4 Nf6
+C42 Russian Game: 1. e4 e5 2. Nf3 Nf6
+E43 Nimzo-Indian Defense: St. Petersburg Variation: 1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 b6
 A57 Benko Gambit: 1. d4 Nf6 2. c4 c5 3. d5 b5
-C84 Ruy Lopez: Closed Variation: 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3
-C25 Vienna Game: 1. e4 e5 2.  Nc3
-D03 Torre Attack: 1. d4 d5 2. Nf3 Nf6 3. Bg5
-B20 Sicilian Defence: 1. e4 c5
-C42 Petrov's Defence: Classical Attack: 1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. d4
-D02 London System: 1. d4 d5 2. Nf3 Nf6 3. Bf4
-C03 French Defence: Tarrasch Variation: 1. e4 e6 2. d4 d5 3. Nd2
-A26 English Opening: Closed System: 1. c4 e5 2. Nc3 Nc6 3. g3 g6 4. Bg2 Bg7 5. d3 d6
-A83 Dutch Defence: Staunton Gambit: 1. d4 f5 2. e4 fxe4 3. Nc3 Nf6 4. Bg5
-E73 King's Indian Defence: Averbakh Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Be2 O-O 6. Bg5
-B07 Pirc Defence: Classical Variation: 1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Nf3
-C30 King's Gambit Accepted: Classical Variation: 1. e4 e5 2. f4 exf4 3. Nf3 g5
+C88 Ruy Lopez: Closed: 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3
+C25 Vienna Game: 1. e4 e5 2. Nc3
+D03 Queen's Pawn Game: Torre Attack: 1. d4 d5 2. Nf3 Nf6 3. Bg5
+B20 Sicilian Defense: 1. e4 c5
+C42 Russian Game: Classical Attack: 1. e4 e5 2. Nf3 Nf6 3. Nxe5 d6 4. Nf3 Nxe4 5. d4
+D02 Queen's Pawn Game: London System: 1. d4 d5 2. Nf3 Nf6 3. Bf4
+C03 French Defense: Tarrasch Variation: 1. e4 e6 2. d4 d5 3. Nd2
+A26 English Opening: King's English Variation, Closed System, Full Symmetry: 1. c4 e5 2. Nc3 Nc6 3. g3 g6 4. Bg2 Bg7 5. d3 d6
+A83 Dutch Defense: Staunton Gambit: 1. d4 f5 2. e4 fxe4 3. Nc3 Nf6 4. Bg5
+E73 King's Indian Defense: Averbakh Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Be2 O-O 6. Bg5
+B08 Pirc Defense: Classical Variation: 1. e4 d6 2. d4 Nf6 3. Nc3 g6 4. Nf3
+C34 King's Gambit Accepted: King's Knight's Gambit: 1. e4 e5 2. f4 exf4 3. Nf3 g5
 D20 Queen's Gambit Accepted: 1. d4 d5 2. c4 dxc4
-E80 King's Indian Defence: Sämisch Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f3
-A20 English Opening: Reversed Sicilian: 1. c4 e5
-B18 Caro-Kann Defence: Classical Variation: 1. e4 c6 2. d4 d5 3. Nc3 dxe4 4. Nxe4 Bf5
+E80 King's Indian Defense: Sämisch Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. f3
+A20 English Opening: King's English Variation: 1. c4 e5
+B18 Caro-Kann Defense: Classical Variation: 1. e4 c6 2. d4 d5 3. Nd2 dxe4 4. Nxe4 Bf5
 C47 Four Knights Game: Scotch Variation: 1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. d4
 C33 King's Gambit Accepted: Bishop's Gambit: 1. e4 e5 2. f4 exf4 3. Bc4
-C46 Four Knights Game: 1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6
-C65 Ruy Lopez: Berlin Defence: 1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6
-D08 Queen's Gambit: Albin Countergambit: 1. d4 d5 2. c4 e5
+C47 Four Knights Game: 1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6
+C65 Ruy Lopez: Berlin Defense: 1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6
+D08 Queen's Gambit Declined: Albin Countergambit: 1. d4 d5 2. c4 e5
 C89 Ruy Lopez: Marshall Attack: 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 O-O 8. c3 d5
 C68 Ruy Lopez: Exchange Variation: 1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6
-B41 Sicilian Defence: Kan Variation: 1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 a6
-B14 Caro-Kann Defence: Panov-Botvinnik Attack: 1. e4 c6 2. d4 d5 3. exd5 cxd5 4. c4 Nf6 5. Nc3
-E91 King's Indian Defence: Classical Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2
-C31 King's Gambit: Falkbeer Countergambit: 1. e4 e5 2. f4 d5
-B01 Scandinavian Defence: Modern Variation: 1. e4 d5 2. exd5 Nf6 3. d4
+B41 Sicilian Defense: Kan Variation: 1. e4 c5 2. Nf3 e6 3. d4 cxd4 4. Nxd4 a6
+B13 Caro-Kann Defense: Panov Attack: 1. e4 c6 2. d4 d5 3. exd5 cxd5 4. c4 Nf6 5. Nc3
+E91 King's Indian Defense: Orthodox Variation: 1. d4 Nf6 2. c4 g6 3. Nc3 Bg7 4. e4 d6 5. Nf3 O-O 6. Be2
+C31 King's Gambit Declined: Falkbeer Countergambit: 1. e4 e5 2. f4 d5
+B01 Scandinavian Defense: Modern Variation: 1. e4 d5 2. exd5 Nf6 3. d4
 A45 Trompowsky Attack: 1. d4 Nf6 2. Bg5
-C41 Philidor Defence: 1. e4 e5 2. Nf3 d6
+C41 Philidor Defense: 1. e4 e5 2. Nf3 d6
 C45 Scotch Game: Classical Variation: 1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Bc5
-D07 Queen's Gambit: Chigorin Defence: 1. d4 d5 2. c4 Nc6
-C46 Four Knights Game: Halloween Gambit: 1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5
-C00 French Defence: 1. e4 e6
-B60 Sicilian Defence: Richter-Rauzer Variation: 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Bg5
+D07 Queen's Gambit Declined: Chigorin Defense: 1. d4 d5 2. c4 Nc6
+C47 Four Knights Game: Halloween Gambit: 1. e4 e5 2. Nf3 Nc6 3. Nc3 Nf6 4. Nxe5
+C00 French Defense: 1. e4 e6
+B60 Sicilian Defense: Richter-Rauzer Variation: 1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Bg5
