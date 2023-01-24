@@ -10,8 +10,8 @@
         box-sizing: border-box;
       }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
-          Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji;
         color: #c9d1d9;
         background-color: #0d1117;
         padding: 2em;
@@ -20,7 +20,7 @@
         margin-top: 0;
       }
       .highlight {
-        background-color: #401818;
+        background-color: #401818 !important;
       }
       td,
       th {
@@ -53,6 +53,9 @@
       #table-openings th:last-child {
         text-align: left;
       }
+      #table-openings tr:nth-child(2n) {
+        background-color: #151d27;
+      }
       a {
         color: #58a6ff;
       }
@@ -63,14 +66,12 @@
 
     <p>
       <small>
-        <a
-          href="https://github.com/benediktwerner/lichess-themed-tournament-schedule"
+        <a href="https://github.com/benediktwerner/lichess-themed-tournament-schedule"
           >Source Code</a
         >
         <i>
-          Disclaimer: This is not official information. There is no guarantee
-          that any of these tournaments will take place. The tournament schedule
-          may change at any point.
+          Disclaimer: This is not official information. There is no guarantee that any of these
+          tournaments will take place. The tournament schedule may change at any point.
         </i>
       </small>
     </p>
@@ -97,11 +98,10 @@
 
     <h2>All openings</h2>
     <p style="max-width: 800px">
-      The three selected openings move forward by one each day, so each opening
-      has tournaments three days in a row. On the first day, the opening starts
-      at 03:00 UTC, the next day at 11:00 UTC, and the last day on 19:00 UTC,
-      each time going through Bullet, SuperBlitz, Blitz, and Rapid in subsequent
-      hours.
+      The three selected openings move forward by one each day, so each opening has tournaments
+      three days in a row. On the first day, the opening starts at 03:00 UTC, the next day at 11:00
+      UTC, and the last day on 19:00 UTC, each time going through Bullet, SuperBlitz, Blitz, and
+      Rapid in subsequent hours.
     </p>
     <table id="table-openings" cellspacing="0">
       <tr>
@@ -112,10 +112,13 @@
     </table>
 
     <script>
-      function dayOfYear() {
-        const now = new Date();
+      const MS_IN_DAY = 24 * 60 * 60 * 1000;
+
+      function dayOfYear(offset = 0) {
+        // tournaments get scheduled one day in advance
+        const now = new Date(+new Date() + (offset - 1) * MS_IN_DAY);
         const start = Date.UTC(now.getUTCFullYear(), 0, 0);
-        return Math.floor((now - start) / (1000 * 60 * 60 * 24));
+        return Math.floor((now - start) / MS_IN_DAY);
       }
 
       function formatDate(date) {
@@ -125,7 +128,7 @@
       }
 
       function pad2(num) {
-        return num.toString().padStart(2, '0');
+        return num.toString().padStart(2, "0");
       }
 
       function h(tag, content) {
@@ -136,7 +139,7 @@
       }
 
       async function main() {
-        const r = await fetch('openings.txt');
+        const r = await fetch("openings.txt");
         /** @type {string} */
         const text = await r.text();
         /** @type {HTMLElement[]} */
@@ -144,92 +147,83 @@
           .split(/\r?\n/)
           .filter(Boolean)
           .map((name) => {
-            const a = h('a', name);
+            const a = h("a", name);
             const moves = name
-              .split('1. ')[1]
-              .replace(/\d+\. /g, '')
-              .replace(/ /g, '_');
-            a.href = 'https://lichess.org/opening/-/' + moves;
+              .split("1. ")[1]
+              .replace(/\d+\. /g, "")
+              .replace(/ /g, "_");
+            a.href = "https://lichess.org/opening/-/" + moves;
             return a;
           });
-        const openingsTable = document.getElementById('table-openings');
-        const todayTable = document.getElementById('table-today');
-        const tomorrowTable = document.getElementById('table-tomorrow');
+        const now = new Date();
+        const openingsTable = document.getElementById("table-openings");
+        const todayTable = document.getElementById("table-today");
+        const tomorrowTable = document.getElementById("table-tomorrow");
         const today = dayOfYear();
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const timeZoneOffset = -new Date().getTimezoneOffset();
-        const WEIRD_OFFSET = 1;
+        const timeZoneOffset = -now.getTimezoneOffset();
 
-        Array.from(document.getElementsByClassName('tz')).forEach(
+        Array.from(document.getElementsByClassName("tz")).forEach(
           (el) =>
-            (el.innerHTML = `${timeZone}<br>UTC${
-              timeZoneOffset > 0 ? '+' : ''
-            }${pad2(Math.floor(timeZoneOffset / 60))}:${pad2(
-              timeZoneOffset % 60
-            )}`)
+            (el.innerHTML = `${timeZone}<br>UTC${timeZoneOffset > 0 ? "+" : ""}${pad2(
+              Math.floor(timeZoneOffset / 60)
+            )}:${pad2(timeZoneOffset % 60)}`)
         );
 
-        const todayIndex = (today - WEIRD_OFFSET) % openings.length;
-        for (let i = 0; i < openings.length; i++) {
-          const day = (i + todayIndex) % openings.length;
-          const opening = openings[day];
-          const daysToNext =
-            ((4 * openings.length + day - 3 - today + WEIRD_OFFSET) %
-              openings.length) +
-            1;
+        const seen = new Set();
+        const currentIndices = [0, 1, 2].map((o) => (dayOfYear() + o) % openings.length);
+        const current = [null, null, null];
+        const list = [];
+        for (let daysOff = 1; seen.size < openings.length; daysOff++) {
+          const index = (dayOfYear(daysOff) + 2) % openings.length;
+          const curr = currentIndices.indexOf(index);
+          const opening = openings[index];
           let nextDate = new Date();
-          nextDate.setUTCDate(nextDate.getUTCDate() + daysToNext);
-          let nextOcc = formatDate(nextDate);
-          if (i < 3) {
-            nextOcc +=
-              ' (and ' +
-              ['today', 'today+tomorrow', 'today+next 2 days'][i] +
-              ')';
-          }
-          const tr = h('tr', [
-            h('td', day),
-            h('td', [opening.cloneNode(true)]),
-            h('td', nextOcc),
+          nextDate.setUTCDate(nextDate.getUTCDate() + daysOff);
+          const tr = h("tr", [
+            h("td", ((index + openings.length - 3) % openings.length) + 1),
+            h("td", [opening.cloneNode(true)]),
+            h("td", formatDate(nextDate)),
           ]);
-          if (i < 3) tr.classList.add('highlight');
-          openingsTable.append(tr);
+          if (curr !== -1) {
+            const c = tr.cloneNode(true);
+            c.children[2].innerText +=
+              " (and " + ["today", "today+tomorrow", "today+next 2 days"][curr] + ")";
+            c.classList.add("highlight");
+            current[curr] = c;
+          }
+          list.push(tr);
+          seen.add(index);
         }
+        current.forEach((tr) => openingsTable.append(tr));
+        list.forEach((tr) => openingsTable.append(tr));
 
         [todayTable, tomorrowTable].forEach((table, dayOff) => {
           [2, 1, 0].forEach((off) => {
-            const opening =
-              openings[(today + dayOff + off - WEIRD_OFFSET) % openings.length];
+            const opening = openings[(dayOfYear(dayOff) + off) % openings.length];
             const utcHourBase = [19, 11, 3][off];
             [0, 1, 2, 3].forEach((off2) => {
               const utcHour = utcHourBase + off2;
               const localTime = (utcHour * 60 + timeZoneOffset) % (24 * 60);
-              const formatTime = ['1+0', ' 3+0', ' 5+0', '10+0'][off2];
-              const formatName = ['Bullet', 'SuperBlitz', ' Blitz', 'Rapid'][
-                off2
-              ];
+              const formatTime = ["1+0", " 3+0", " 5+0", "10+0"][off2];
+              const formatName = ["Bullet", "SuperBlitz", " Blitz", "Rapid"][off2];
 
               table.append(
-                h('tr', [
-                  h('td', pad2(utcHour) + ':00'),
-                  h(
-                    'td',
-                    pad2(Math.floor(localTime / 60)) +
-                      ':' +
-                      pad2(localTime % 60)
-                  ),
-                  h('td', formatTime),
-                  h('td', formatName),
-                  h('td', [opening.cloneNode(true)]),
+                h("tr", [
+                  h("td", pad2(utcHour) + ":00"),
+                  h("td", pad2(Math.floor(localTime / 60)) + ":" + pad2(localTime % 60)),
+                  h("td", formatTime),
+                  h("td", formatName),
+                  h("td", [opening.cloneNode(true)]),
                 ])
               );
             });
           });
         });
 
-        const now = new Date();
-        document.getElementById('today-date').innerText = formatDate(now);
+        document.getElementById("today-date").innerText = formatDate(now);
         now.setUTCDate(now.getUTCDate() + 1);
-        document.getElementById('tomorrow-date').innerText = formatDate(now);
+        document.getElementById("tomorrow-date").innerText = formatDate(now);
       }
 
       main();
