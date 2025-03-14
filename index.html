@@ -191,8 +191,9 @@
               " (and " + ["today", "today+tomorrow", "today+next 2 days"][curr] + ")";
             c.classList.add("highlight");
             current[curr] = c;
+          } else {
+            list.push(tr);
           }
-          list.push(tr);
           seen.add(index);
         }
         current.forEach((tr) => openingsTable.append(tr));
